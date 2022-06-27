@@ -2,11 +2,11 @@ package BronzeToGold;
 
 import java.io.*;
 import java.util.*;
-
+//일곱난쟁이
+// https://www.acmicpc.net/problem/2309
 /*
  9명의 드워프중에서 총 키-100의 합을 가진 두명의 드워프를 찾으면 됨.
  */
-
 public class SevenDwrafs_2309 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

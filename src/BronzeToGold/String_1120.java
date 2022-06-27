@@ -2,8 +2,9 @@ package BronzeToGold;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
 /*
+ 문자열 https://www.acmicpc.net/problem/1120
+
  앞 뒤 무엇을 추가되는 문자는 무조건 일치하므로 신경쓰지 않아도 된다.
  A문자열이 B문자열에서 가장 차이가 적은 위치를 찾는것이 관건.
  */
