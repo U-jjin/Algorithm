@@ -23,8 +23,7 @@ public class FashionKing_9375 {
             //옷 타입 별로 갯수 세기
             for(int j=0; j<n; j++){
                 String [] type= br.readLine().split(" ");
-                if(!hashMap.containsKey(type[1])) hashMap.put(type[1],1);
-                else hashMap.put(type[1], hashMap.get(type[1])+1);
+                hashMap.put(type[1],hashMap.getOrDefault(type[1],0)+1);
             }
             // 안입는것 포함해서 v+1 곱하기 팩토리얼
             for(int v: hashMap.values()){
