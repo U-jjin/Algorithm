@@ -12,7 +12,7 @@ https://www.acmicpc.net/problem/1755
 
  */
 
-public class PlayofNumber_2644 {
+public class PlayofNumber_1755 {
     static class alpaNum implements Comparable<alpaNum>{
         int num;
         String alpa;
