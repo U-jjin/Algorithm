@@ -48,7 +48,7 @@ public class Chonsu_2644 {
         if(visited[t2] == 0) System.out.println(-1);
         else System.out.println(visited[t2]-1);  //본인을 1부터 시작해서 하나 빼기
     }
-    public static void bfs(int start, int target){
+        public static void bfs(int start, int target){
         Queue<Integer> queue =new LinkedList<>();
         visited[start] = 1;
         queue.add(start);
