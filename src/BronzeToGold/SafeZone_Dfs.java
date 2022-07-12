@@ -18,7 +18,7 @@ public class SafeZone_Dfs {
     static int [][] loc;
     static int[][] sinked;
     static boolean[][] zoned;
-    static ArrayList<Integer> safelist;
+
     static int [] dx = {0,0,-1,1};
     static int [] dy = {-1,1,0,0};
     public static void main(String[] args) throws IOException {
@@ -48,7 +48,7 @@ public class SafeZone_Dfs {
                     dcnt++;
                 }
             }
-            safezone = dcnt> safezone? dcnt:safezone;
+            safezone = Math.max(dcnt, safezone);
         }
         System.out.print(safezone);
     }

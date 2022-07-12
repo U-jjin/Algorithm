@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-class baekjoon_14888_20211002 {
+class BOJ14888_220712_fail {
     static ArrayList<String> operaters = new ArrayList<>();
+    static String operlist ="";
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String list ="";
         long min = Long.MAX_VALUE;
         long max = Long.MIN_VALUE;
 
@@ -23,15 +23,12 @@ class baekjoon_14888_20211002 {
         }
 
         st = new StringTokenizer(br.readLine());
-        list += "+".repeat(Integer.parseInt(st.nextToken()));
-        list += "-".repeat(Integer.parseInt(st.nextToken()));
-        list += "*".repeat(Integer.parseInt(st.nextToken()));
-        list += "%".repeat(Integer.parseInt(st.nextToken()));
+        operlist += "+".repeat(Integer.parseInt(st.nextToken()));
+        operlist += "-".repeat(Integer.parseInt(st.nextToken()));
+        operlist += "*".repeat(Integer.parseInt(st.nextToken()));
+        operlist += "%".repeat(Integer.parseInt(st.nextToken()));
 
-        boolean [] visited =new boolean[list.length()];
-        char [] output = new char [list.length()];
-
-        perm(list,output,visited,0,list.length());
+        perm( new char [n-1],new boolean [n-1],0,n);
 
         for(String o : operaters){
             long x = nums[0];
@@ -46,21 +43,19 @@ class baekjoon_14888_20211002 {
 
     }
 
-    static void perm(String s, char[] output, boolean[] visited, int cnt, int n) {
+    static void perm(char[] output, boolean[] visited, int cnt, int n) {
         if (cnt == n) {
             String result = new String(output);
             if(!operaters.contains(result)) operaters.add(result);
-            System.out.println(result);
             return;
         }
-
         for (int i=0; i<n; i++) {
-            if (!visited[i]){
-                visited[i] = true;
-                output[cnt] =s.charAt(i);
-                perm(s, output, visited, cnt + 1, n);
-                visited[i] = false;;
-            }
+            if (visited[i]) continue;
+
+            visited[i] = true;
+            output[cnt] =operlist.charAt(i);
+            perm( output, visited, cnt + 1, n);
+            visited[i] = false;
         }
     }
 
@@ -74,7 +69,7 @@ class baekjoon_14888_20211002 {
                 return x*y;
             case '%':
                 if(x<0) {
-                    return Math.abs(Math.abs(x) / y);
+                    return -1*(Math.abs(x)/y);
                 }else return x/y;
             default: return 0;
         }
